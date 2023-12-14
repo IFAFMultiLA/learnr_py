@@ -15,15 +15,7 @@ library(reticulate)
 library(learnr)
 library(gradethis)
 
-virtualenv_path <- "./venv/learnr_py"
-# get the system python interpreter; pip, venv and virtualenv modules need to be installed for this:
-#   apt install python3-pip python3-venv python3-virtualenv
-# can pass a Python version to require, e.g. version = "3.10"
-python_path <- virtualenv_starter(version = "3.10")
-python_dependencies <- c('numpy', 'pandas', 'scikit-learn', 'scipy')
-
-virtualenv_create(virtualenv_path, python = python_path)
-virtualenv_install(virtualenv_path, packages = python_dependencies)
+virtualenv_path <- "./venv"
 use_virtualenv(virtualenv_path, required = TRUE)
 
 knitr::opts_chunk$set(echo = FALSE)
@@ -34,12 +26,32 @@ gradethis_setup()
 
 ## Topic 1
 
-### Python Exercise 
+### Python Exercises
 
-```{python data, exercise = TRUE}
+```{python pysetup, include = FALSE}
 import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+```
 
+
+```{python ex1, exercise = TRUE}
 x = np.array([3, 1, 4])
 x
 ```
+
+```{python ex2, exercise = TRUE, exercise.setup = "ex1"}
+# code cells do not share state :(
+y = np.array([1, 3, 0])
+x + y
+```
+
+```{python ex3, exercise = TRUE, exercise.setup = "ex2"}
+plt.scatter(x, y)
+```
+
+```{python ex4, exercise = TRUE, exercise.setup = "ex2"}
+pd.DataFrame({'x': x, 'y': y})
+```
+
 
