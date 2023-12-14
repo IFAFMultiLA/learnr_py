@@ -18,7 +18,7 @@ library(gradethis)
 virtualenv_path <- "./venv"
 use_virtualenv(virtualenv_path, required = TRUE)
 
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 
 gradethis_setup()
 ```
@@ -26,13 +26,22 @@ gradethis_setup()
 
 ## Topic 1
 
-### Python Exercises
+### Python code chunks
 
-```{python pysetup, include = FALSE}
+```{python pysetup}
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 ```
+
+```{python}
+x = np.random.binomial(10, 0.3, 100)
+
+plt.hist(x)
+```
+
+
+### Python Exercises
 
 
 ```{python ex1, exercise = TRUE}
