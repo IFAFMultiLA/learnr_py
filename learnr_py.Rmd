@@ -9,7 +9,7 @@ runtime: shiny_prerendered
 ---
 
 ```{r setup, include=FALSE}
-require(RAppArmor)
+require(RAppArmor)     # important for server deployment
 library(reticulate)
 library(learnr)
 library(gradethis)
