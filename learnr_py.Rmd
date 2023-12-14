@@ -11,8 +11,20 @@ runtime: shiny_prerendered
 ---
 
 ```{r setup, include=FALSE}
+library(reticulate)
 library(learnr)
 library(gradethis)
+
+virtualenv_path <- "./venv/learnr_py"
+# get the system python interpreter; pip, venv and virtualenv modules need to be installed for this:
+#   apt install python3-pip python3-venv python3-virtualenv
+# can pass a Python version to require, e.g. version = "3.10"
+python_path <- virtualenv_starter(version = "3.10")
+python_dependencies <- c('numpy', 'pandas', 'scikit-learn', 'scipy')
+
+virtualenv_create(virtualenv_path, python = python_path)
+virtualenv_install(virtualenv_path, packages = python_dependencies)
+use_virtualenv(virtualenv_path, required = TRUE)
 
 knitr::opts_chunk$set(echo = FALSE)
 
@@ -22,64 +34,12 @@ gradethis_setup()
 
 ## Topic 1
 
-### Exercise 
+### Python Exercise 
 
-*Here's a simple exercise with an empty code chunk provided for entering the answer.*
+```{python data, exercise = TRUE}
+import numpy as np
 
-Write the R code required to add two plus two:
-
-```{r two-plus-two, exercise=TRUE}
-
-```
-
-### Exercise with Code
-
-*Here's an exercise with some prepopulated code as well as `exercise.lines = 5` to provide a bit more initial room to work.*
-
-Now write a function that adds any two numbers and then call it:
-
-```{r add-function, exercise=TRUE, exercise.lines = 5}
-add <- function() {
-  
-}
-```
-
-## Topic 2
-
-### Exercise with Hint
-
-*Here's an exercise where the chunk is pre-evaluated via the `exercise.eval` option (so the user can see the default output we'd like them to customize). We also add a "hint" to the correct solution via the chunk immediate below labeled `print-limit-hint`.*
-
-Modify the following code to limit the number of rows printed to 5:
-
-```{r print-limit, exercise=TRUE, exercise.eval=TRUE}
-mtcars
-```
-
-```{r print-limit-hint}
-head(mtcars)
-```
-
-### Quiz
-
-*You can include any number of single or multiple choice questions as a quiz. Use the `question` function to define a question and the `quiz` function for grouping multiple questions together.*
-
-Some questions to verify that you understand the purposes of various base and recommended R packages:
-
-```{r quiz}
-quiz(
-  question("Which package contains functions for installing other R packages?",
-    answer("base"),
-    answer("tools"),
-    answer("utils", correct = TRUE),
-    answer("codetools")
-  ),
-  question("Which of the R packages listed below are used to create plots?",
-    answer("lattice", correct = TRUE),
-    answer("tools"),
-    answer("stats"),
-    answer("grid", correct = TRUE)
-  )
-)
+x = np.array([3, 1, 4])
+x
 ```
 
