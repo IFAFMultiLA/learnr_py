@@ -36,6 +36,17 @@
       ],
       "Hash": "470851b6d5d0ac559e9d01bb352b4021"
     },
+    "RAppArmor": {
+      "Package": "RAppArmor",
+      "Version": "3.2.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "OS_type": "unix",
+      "Requirements": [
+        "unix"
+      ],
+      "Hash": "3a0db9c6e8ac81612c367107effad35e"
+    },
     "Rcpp": {
       "Package": "Rcpp",
       "Version": "1.0.11",
@@ -57,21 +68,6 @@
         "Rcpp"
       ],
       "Hash": "c232938949fcd8126034419cc529333a"
-    },
-    "adaptivelearnr": {
-      "Package": "adaptivelearnr",
-      "Version": "0.6.10",
-      "Source": "Local",
-      "RemoteType": "local",
-      "RemoteUrl": "../adaptivelearnr",
-      "Requirements": [
-        "fs",
-        "htmltools",
-        "jsonlite",
-        "learnr",
-        "shiny"
-      ],
-      "Hash": "c5795d7d2d88cba004389702f94db53c"
     },
     "backports": {
       "Package": "backports",
@@ -803,6 +799,14 @@
         "xfun"
       ],
       "Hash": "5ac22900ae0f386e54f1c307eca7d843"
+    },
+    "unix": {
+      "Package": "unix",
+      "Version": "1.5.6",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "OS_type": "unix",
+      "Hash": "5f5ad3da930cef6e81747ade5332aa26"
     },
     "utf8": {
       "Package": "utf8",

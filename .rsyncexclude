@@ -1,0 +1,15 @@
+.git*
+venv
+renv/library/
+renv/sandbox/
+renv/staging/
+.Rhistory
+.Rproj.user/
+*.Rproj
+.rsyncexclude
+Makefile
+*.swp
+learnr_py_files/
+*.html
+README.md
+
